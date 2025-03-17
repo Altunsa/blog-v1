@@ -4,4 +4,8 @@
     <h2>{{ publication.title }}</h2>
     <p>{{ publication.author }}</p>
     <p>{{ publication.body }}</p>
+
+    
+    <button><a href="{% url 'publication-update' publication.pk %}">Editar</a></button>
+    <button><a href="{% url 'publications-list' %}">Volver</a></button>
 {% endblock content %}
