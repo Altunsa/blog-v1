@@ -6,6 +6,9 @@
 <body>
     <header>
        <h1><a href="{%url 'publications-list' %}">Blog de Fish</a></h1>
+     <div>
+          <a href="{% url 'publication-create' %}">Crear publicación</a>
+     </div>
     </header>
     {% block content %}
     {% endblock content %}
