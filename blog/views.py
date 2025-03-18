@@ -1,6 +1,6 @@
 from .models import Publication
 from django.views.generic import ListView,DetailView
-from django.views.generic.edit import CreateView,UpdateView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
 
 # Create your views here.
 
@@ -21,3 +21,8 @@ class PublicationUpdateView(UpdateView):
     model = Publication
     template_name = 'publication-update.html'
     fields = ['title', 'body']
+
+class PublicationdeleteView(DeleteView):
+    model = Publication
+    template_name = 'publication-delete.html'
+    success_url = '/'

@@ -1,14 +1,17 @@
+
 {% extends "_base.html" %}
 
 {% block content %}
-    <h2>{{ publication.title }}</h2>
+
+    <h2>¿Estás seguro de que quieres borrar "{{ publication.title }}"?</h2>
     <p>{{ publication.author }}</p>
     <p>{{ publication.body }}</p>
     <p>{{ publication.date }} </p>
     <p>{{ publication.update }}</p>
 
-    
-    <button><a href="{% url 'publication-update' publication.pk %}">Editar</a></button>
-    <button><a href="{% url 'publication-delete' publication.pk %}">Borrar</a></button>
+    <form action="{% url 'publication-delete' publication.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Borrar</button>
+    </form>
     <button><a href="{% url 'publications-list' %}">Volver</a></button>
 {% endblock content %}
